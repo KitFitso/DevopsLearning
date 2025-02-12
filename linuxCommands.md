@@ -1,0 +1,3 @@
+ip addr show
+
+- basically ipconfig
