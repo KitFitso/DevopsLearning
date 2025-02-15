@@ -70,7 +70,7 @@ _* IMPORTANT ASUS BIOS SOMETIMES CALL IT SVM FOR NO REASON *_
   - base memory
     - 1024 MB is good for a small machine with low ram
     - 2048 MB is the preffered option if you have the ram to spare
-  - processors - keep at 1 (unless you want to crazy shit and slow your pc down a lot)
+  - processors - keep at 1 (unless you want to run crazy shit and slow your pc down a lot)
 - next
   - you can change this how you want 20GB is enough for almost anything you want to do
   - do not check pre-allocate full size or you will lose 20 GB of you space until you delete it
@@ -129,3 +129,28 @@ _* IMPORTANT ASUS BIOS SOMETIMES CALL IT SVM FOR NO REASON *_
     - then you can start the VM again and finish final set up, skip everything, add your username and password and your good to go!
 
 # Automatically creating the VM
+
+- Vagrant is a VM automation tool that we are using
+  - This is not a hypervisor, is a manager
+- Vagrant Benefits
+  - no OS Installation
+    - they use VM Images/Box
+    - Vagrant cloud stores the OS and we make copies
+  - VagrantFile
+    - manage all VMs with 1 file if we need updates
+    - provisioning CLI for all VMs at once
+  - simple commands (CLI) - check commands file
+    ![Vagrant Diagram](/img/vagrant.png)
+
+# Getting started
+
+- open gitbash
+  - pwd - shows present working directory
+- make a new directory in whatever drive you want
+  - mkdir /w/vagrant-vms
+- cd into the new drive
+  - cd /w/vagrant-vms/
+- make 2 more directories
+  - mkdir centos
+  - mkdir ubuntu
+- you can check if it was made right with ls

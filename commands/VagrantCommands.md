@@ -1,0 +1,10 @@
+- vagrant init boxname
+  - creates a new box for OS
+- vagrant up
+  - creates VM or if it exists start up
+- vagrant ssh
+  - to log in
+- vagrant halt
+  - to stop vm
+- vagrant destroy
+  - deletes vm
