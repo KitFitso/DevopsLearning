@@ -53,7 +53,7 @@ _*note - not sure how important the versions are*_
 
 ## -AWS
 
-_* servers *_
+### servers \*\_
 
 - sign up for a free account
 - log in with root (you will create an IAM account later)
@@ -61,7 +61,7 @@ _* servers *_
 - click on EC2 or search it if you don't see it
   - if you see a dashboard with a buch of numbers then you are good to go, account created
 
-_* Users *_
+### Users \*\_
 
 - search IAM in the top bar
   - click "Users" on the left
@@ -88,7 +88,7 @@ _* Users *_
   - `~~~~~~~~~~SUPER IMPORTANT!!!!!!~~~~~~~~~`
   - `before returning to users list make sure you download the .csv file next to return to users list`
 
-_* Billing *_
+### Billing \*\_
 
 - click on your profile in the top right
 - click billing and payments on the left
@@ -102,7 +102,7 @@ _* Billing *_
       - enter email
     - check recieve CloudWatch billing alerts
 
-_* cloud watch *_
+### cloud watch \*\_
 
 - search cloudwatch in the top bar
 - make sure you are in the region "N. Virginia" left of your profile
@@ -136,7 +136,7 @@ _* cloud watch *_
   - check your email for an email to verify that the alarm is set correctly
   - now if you go back to all alarms you can refresh until you see that it is state: OK
 
-_* Certificate Manager *_
+### Certificate Manager \*\_
 
 - search certificate manager in the search bar
 - request certificate
@@ -163,7 +163,7 @@ _* Certificate Manager *_
 - can take an hour to work
 - refresh AWS - ACM to look for a success to see if it works, there should be a success on status.
 
-_* Creating IAM portal link *_
+### Creating IAM portal link \*\_
 
 - if you navigate to the IAM Dashboard then on the right side you will see an AWS Account card that has the 'Sign-in URL for IAM users in this account'
   - that is where other users can log in to see our portal, for admins and stuff

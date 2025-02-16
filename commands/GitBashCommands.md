@@ -10,3 +10,7 @@
   - shows where you were current working or present working directory
 - clear
   - just clears the current terminal of all text
+- cat {file}
+  - will print out the contents of the file
+- history
+  - shows all previously executed commands

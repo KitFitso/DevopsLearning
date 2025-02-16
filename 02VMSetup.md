@@ -142,7 +142,7 @@ _* IMPORTANT ASUS BIOS SOMETIMES CALL IT SVM FOR NO REASON *_
   - simple commands (CLI) - check commands file
     ![Vagrant Diagram](/img/vagrant.png)
 
-# Getting started
+## Getting started
 
 - open gitbash
   - pwd - shows present working directory
@@ -154,3 +154,42 @@ _* IMPORTANT ASUS BIOS SOMETIMES CALL IT SVM FOR NO REASON *_
   - mkdir centos
   - mkdir ubuntu
 - you can check if it was made right with ls
+- go to [vagrant cloud](https://portal.cloud.hashicorp.com/vagrant/discover) to find boxes
+  - look up centos 9
+  - you should see a bunch of pre-made boxes that you can use in the future if you want
+  - we used [eurolinux-vagrant/centos-stream-9](https://portal.cloud.hashicorp.com/vagrant/discover/eurolinux-vagrant/centos-stream-9)
+  - if you look at the link you can see that is supports virtual box, make sure what you want is supported
+  - you should see the "How to use this box with Vagrant" section on the page, looks kind of like this
+  ```js
+    Vagrant.configure("2") do |config|
+      config.vm.box = "eurolinux-vagrant/centos-stream-9"
+      config.vm.box_version = "9.0.48"
+    end
+  ```
+  - copy the name exactly e.g. "eurolinux-vagrant/centos-stream-9"
+- go back to the same folder .../vagrant-vms/centos
+  - type vagrant init {box name}
+    - e.g `$ vagrant init eurolinux-vagrant/centos-stream-9`
+  - make sure the vagrant file was created with ls
+  - you can look at the file with cat VagrantFile
+    - you can open this file and edit the name to make a new box
+- make sure you are still in the right dir and type `vagrant up` to start the vm
+  - POTENTIAL ERROR
+    - bsdtar.EXE: Error opening archive: Unrecognized archive format
+    - fix - updating vagrant
+  - POTENTIAL ERROR
+    - schannel: next InitializeSecurityContext - Vbox hardening
+    - fix - turning off anti virus
+- once you finish vagrant up (this takes a while) you can run
+  - vagrant box list - see its installed
+  - vagrant status - see its running
+- vagrant ssh to log into the vm
+  - you should see the new user name of the console `vagrant@localhost`
+- you can play around in the vm here and do what you want
+- you can also see the machine live if you open up virtualBox
+- when you are done
+  - `exit` to logout
+  - vagrant halt to turn off the vm
+  - vagrant status to make sure its off
+- create ubuntu now, move to the other folder, and repeat
+  - we are going to use [ubuntu jammy](https://portal.cloud.hashicorp.com/vagrant/discover/ubuntu/jammy64) for the ubuntu one

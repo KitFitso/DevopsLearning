@@ -1,2 +1,10 @@
 - ip addr show
   - basically ipconfig
+- whoami
+  - shows the user name of the person using this machine
+- pwd
+  - shows where you were current working or present working directory
+- sudo -i
+  - switches from working user to root user
+- exit
+  - log out of the root user or VM

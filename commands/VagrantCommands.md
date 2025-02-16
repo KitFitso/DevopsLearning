@@ -8,3 +8,14 @@
   - to stop vm
 - vagrant destroy
   - deletes vm
+- vagrant box list
+  - lists all boxes installed on the machine
+- vagrant status
+  - shows the status of all vms
+- vagrant reload
+  - reboots the vm. this is the same of halt then up, just faster
+  - useful if you made any changes to the vagrant file, it will apply them
+- vagrant global-status
+  - reports the status of all vms on the machine. if you have more than 1 running
+- vagrant global-status --prune
+  - removes any boxes from the list that are not installed or running
