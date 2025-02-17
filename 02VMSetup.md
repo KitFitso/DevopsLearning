@@ -1,4 +1,6 @@
-# Concept - what is virtualization
+# Virtual Machine Setup
+
+## Concept - what is virtualization
 
 - you need to have 1 server per service or app
 - best practice you should have 2 for redundencies
@@ -21,14 +23,14 @@
   - runs on a software - this is for learning and testing - oracle virtualbox, Vmware server
 - [Visuals - click on Virtualization](https://www.visualpath.in/devopstutorials/devops)
 
-# Creating the OS on the VM
+## Creating the OS on the VM
 
 - Manual
   - this requires a install wizard and takes a lot of time
 - Automated
   - create a text file that you run automatically and installs on its own
 
-## Manual - doing it by hand first to learn
+### Manual - doing it by hand first to learn
 
 - what you need
   - Oracle VM Virtualbox - hypervisor
@@ -36,14 +38,14 @@
   - Login tool -Git Bash & Putty
   - Enable virtualization in BIOs
 
-## Automated
+### Automated
 
 - what you need
   - Virtualbox - hypervisor
   - Vagrant - creates VMs from text file
   - Vagrant up - CLI tools
 
-## Requirements
+### Requirements
 
 _* IMPORTANT ASUS BIOS SOMETIMES CALL IT SVM FOR NO REASON *_
 
@@ -58,7 +60,7 @@ _* IMPORTANT ASUS BIOS SOMETIMES CALL IT SVM FOR NO REASON *_
   - Virutal Machine Platform
 - Reboot PC
 
-# Manually Creating the VM
+## Manually Creating the VM
 
 - Open up Oracle VM Virtualbox Manager
 - click new - this is for red hat
@@ -82,7 +84,7 @@ _* IMPORTANT ASUS BIOS SOMETIMES CALL IT SVM FOR NO REASON *_
   - make sure it gets 2 CPUs
   - it should have 25GB also unallocated
 
-## installing the OS
+### installing the OS
 
 - search 'centos stream 9 iso download'
 - click the first link [here it is](https://mirror.stream.centos.org/9-stream/BaseOS/x86_64/iso/)
@@ -128,7 +130,7 @@ _* IMPORTANT ASUS BIOS SOMETIMES CALL IT SVM FOR NO REASON *_
     - when its done, go back to setting, storage, and remove the iso boot drive from the tray
     - then you can start the VM again and finish final set up, skip everything, add your username and password and your good to go!
 
-# Automatically creating the VM
+## Automatically creating the VM
 
 - Vagrant is a VM automation tool that we are using
   - This is not a hypervisor, is a manager
@@ -142,7 +144,7 @@ _* IMPORTANT ASUS BIOS SOMETIMES CALL IT SVM FOR NO REASON *_
   - simple commands (CLI) - check commands file
     ![Vagrant Diagram](/img/vagrant.png)
 
-## Getting started
+### Getting started
 
 - open gitbash
   - pwd - shows present working directory

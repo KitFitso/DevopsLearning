@@ -1,11 +1,12 @@
-# --Software
+# Software
 
 Install chocolatey from the instructions given in the link below.
 https://chocolatey.org/docs/installation
 
 Run all the below commands on Powershell (Open Powershell as Admin)
 
-_*note - not sure how important the versions are*_
+_*note - not sure how important the versions are*_ <br>
+_*note 2 - very important, vagrant broke right away make sure to look up the newest versions*_
 
 - choco install virtualbox --version=7.0.8 -y
 - choco install vagrant --version=2.3.7 -y
@@ -17,7 +18,7 @@ _*note - not sure how important the versions are*_
 - choco install vscode -y
 - choco install sublimetext3.app -y
 
-# --Accounts
+# Accounts
 
 - github
 - buy domain
@@ -29,11 +30,11 @@ _*note - not sure how important the versions are*_
   - billing alarm
   - certificate setup
 
-## -Github
+## Github
 
 - have a github account
 
-## -Domain
+## Domain
 
 - find a cheap domain
 - I used namecheap.com
@@ -41,19 +42,19 @@ _*note - not sure how important the versions are*_
   - tylersux.me
 - renewing is where it gets expensive
 
-## -hub.docker
+## hub.docker
 
 - google it and make an account
 - you should use your github account
 
-## -sonarCloud
+## sonarCloud
 
 - google it and make a free account
 - sign in with github account
 
-## -AWS
+## AWS
 
-### servers \*\_
+### servers
 
 - sign up for a free account
 - log in with root (you will create an IAM account later)
@@ -61,7 +62,7 @@ _*note - not sure how important the versions are*_
 - click on EC2 or search it if you don't see it
   - if you see a dashboard with a buch of numbers then you are good to go, account created
 
-### Users \*\_
+### Users
 
 - search IAM in the top bar
   - click "Users" on the left
@@ -88,7 +89,7 @@ _*note - not sure how important the versions are*_
   - `~~~~~~~~~~SUPER IMPORTANT!!!!!!~~~~~~~~~`
   - `before returning to users list make sure you download the .csv file next to return to users list`
 
-### Billing \*\_
+### Billing
 
 - click on your profile in the top right
 - click billing and payments on the left
@@ -102,7 +103,7 @@ _*note - not sure how important the versions are*_
       - enter email
     - check recieve CloudWatch billing alerts
 
-### cloud watch \*\_
+### cloud watch
 
 - search cloudwatch in the top bar
 - make sure you are in the region "N. Virginia" left of your profile
@@ -136,7 +137,7 @@ _*note - not sure how important the versions are*_
   - check your email for an email to verify that the alarm is set correctly
   - now if you go back to all alarms you can refresh until you see that it is state: OK
 
-### Certificate Manager \*\_
+### Certificate Manager
 
 - search certificate manager in the search bar
 - request certificate
@@ -163,7 +164,7 @@ _*note - not sure how important the versions are*_
 - can take an hour to work
 - refresh AWS - ACM to look for a success to see if it works, there should be a success on status.
 
-### Creating IAM portal link \*\_
+### Creating IAM portal link
 
 - if you navigate to the IAM Dashboard then on the right side you will see an AWS Account card that has the 'Sign-in URL for IAM users in this account'
   - that is where other users can log in to see our portal, for admins and stuff
