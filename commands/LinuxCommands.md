@@ -1,28 +1,13 @@
 - ip addr show
   - basically ipconfig
-
----
-
 - whoami
   - shows the user name of the person using this machine
-
----
-
 - pwd
   - shows where you were current working or present working directory
-
----
-
 - sudo -i
   - switches from working user to root user
-
----
-
 - exit
   - log out of the root user or VM
-
----
-
 - cd
   - this moves the user around directories
   - cd .. - is back 1 level
@@ -30,31 +15,126 @@
   - cd - alone this will return you to your home dir
   - you can also type out a whole route /home/{user} to move directly to that dir
   - tab will show you possible dirs or auto fill if there is only 1
-
----
-
+  - cd ~ is the same as cd
 - uptime
   - shows how long this session has been active
-
----
-
 - free -m
   - shows how much free memory you have
-
----
-
-- mkdir {dirname/s}
+- mkdir {dirname/s} [-p]
   - creates a new directory in the current directory
   - can create many if seperated by spaces
-
----
-
+  - can create an array of directories with {n..n+}
+  - you can use -p if you want to create a chain of dirs
+    e.g. this/this2/ops/dev/text.txt
 - touch {filename}
   - creates a new empty file
   - can create an array of files if you use ..
     - touch devfile{1..10}.txt
-
----
-
 - cp {filename} {destination}
   - copies a file to a new directory
+  - make sure the directory is in format {dir}/ the / is after not before
+  - you can also use this with absolute paths
+  - you can copy whole directories if you use -r
+    - cp -r dev/ backupdir/
+- ls [-l|t|r] {dir}
+  - gives a list of every file and dir in the pwd
+  - -l option prints a detailed list of the files like time created and permissions of the file
+  - -lt will make the table sort by time instead of by alphabet
+  - -ltr will sort by time in reverse order
+  - is also able to print a directory that is not pwd if given a path
+- {any command} --help
+  - get help with any command that you type in first
+- mv {file} {file || dir}
+  - moves a file a new directory or if you declare another file name then it renames the file
+  - you can do both at once with an absolute path
+  - you can use _ for everything e.g. mv _.txt dev/
+- rm [-r] {file || directory}
+  - removes a file
+  - can remove a directory if you use -r option
+  - you can remove everything with rm \*
+  - if you want to really remove everything with no questions [DANGEROUS] use rm -rf \*
+- history
+  - prints out a list of every command used in this session in order
+- vim {filename}
+  - open the file in the vim editor or if the file doesn't exist then it will open a new file with that name, DOESN'T SAVE AUTOMATICALLY! YOU NEED TO USE :w
+- ln [-s] {path to file} {name for link}
+  - this is used for creating links in your code, like shortcuts
+  - optional -s means your saving a brand new one
+- unlink {file}
+  - removes the shortcut to links
+  - safer than rm because it cannot remove file only links
+- grep [-i | R | v] {word} {file}
+  - searches the file for that word
+  - -i ignores case sensitivity
+  - you can use \* for the file if you want to search all files
+  - -R will search all directories recursively
+  - -v will return everything that does NOT match your word
+- less {file}
+  - a reader, acts like vim but you cant edit
+  - /{word} lets you seach a file for a word
+- more {file}
+  - like less but is meant to just read, worse than less
+- head [-#] {file}
+  - shows you the first # of lines from the file
+  - default is 10
+- tail [-# | f] {file}
+  - shows you last # of lines from the file,
+  - default is 10
+  - -f will show dynamic changes in the file, the editor will stay open and you can quit with ctrl+c, this is good for log files
+- cut -d{string} -f{#} /etc/passwd
+  - -d{string} is the delimiter you are splitting by
+  - -f{#} is the colomn that you are returning or field
+  - returns a sample of a file that is seperated by a common string
+- awk -F'{string}' '{print ${#}}'
+  - this is just a better cut
+  - replace string with delimiter or sting you want to cut by
+  - {#} is the colomn returned
+- sed 's/{search}/{replace}[/g]' {file}
+- uptime
+  - how long its been running and some other stuff
+- free -m
+  - free memory in the system
+- dh -f
+  - shows file and directory sizes
+- echo {stirng} [> {file}]
+  - just outputs the string in the terminal
+  - \> sends the string to a file
+  - \>> sends the string to the end of the file
+- wc -l {file}
+  - this outputs how many lines there are
+- find {dir} -name {search}
+  - searches a directory for a string
+- useradd {username}
+- groupadd {groupname}
+- id {username}
+- usermod -aG {group} {user}
+  - gets a user account and adds a group to it.
+- passwd {user}
+  - adds a pass to the user
+- pass
+  - if you want to change your own pass
+- su {user}
+  - switches user
+- last
+  - shows user logins and who is currently logged in
+- userdel {user}
+- userdel -r {user} removes the user's home dir also
+- chown [-R] {user}:{group} {dir}
+  - changes the owner of a dir, use -R to make it
+- chmod [-option...] mode[,mode] file|directory
+  - chmod ugo+r file
+  - chmod o-wx dir
+- visudo
+  - lets you edit the sudo file in a vim like editor
+- arch
+  - tells you the architecture of the os
+- rpm -qa
+  - shows all packages installed on the machine for apian
+- dpkg -l
+  - same as rpm -qa but for debian
+- curl {link} -o {name}
+  - text based browser for calls
+- rpm -ivh {package}
+  - install verbose human readable
+- rpm -e {pacakge}
+  - erase

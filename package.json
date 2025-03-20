@@ -1,0 +1,22 @@
+{
+  "name": "devops",
+  "version": "0.3.2",
+  "description": "Learning DevOps",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KitFitso/DevopsLearning.git"
+  },
+  "keywords": [
+    "devops"
+  ],
+  "author": "kyle peck",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KitFitso/DevopsLearning/issues"
+  },
+  "homepage": "https://github.com/KitFitso/DevopsLearning#readme"
+}

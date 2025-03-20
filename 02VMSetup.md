@@ -20,7 +20,7 @@
   - bare metal
     - run as an OS. this replaces windows or iOs
     - examples Xen HyperVisor, VMware Esxi
-  - runs on a software - this is for learning and testing - oracle virtualbox, Vmware server
+  - hosted - runs on a software - this is for learning and testing - oracle virtualbox, Vmware server
 - [Visuals - click on Virtualization](https://www.visualpath.in/devopstutorials/devops)
 
 ## Creating the OS on the VM
@@ -176,12 +176,25 @@ _* IMPORTANT ASUS BIOS SOMETIMES CALL IT SVM FOR NO REASON *_
   - you can look at the file with cat VagrantFile
     - you can open this file and edit the name to make a new box
 - make sure you are still in the right dir and type `vagrant up` to start the vm
+
   - POTENTIAL ERROR
-    - bsdtar.EXE: Error opening archive: Unrecognized archive format
+    - `bsdtar.EXE: Error opening archive: Unrecognized archive format`
     - fix - updating vagrant
   - POTENTIAL ERROR
-    - schannel: next InitializeSecurityContext - Vbox hardening
+    - `schannel: next InitializeSecurityContext - Vbox hardening`
     - fix - turning off anti virus
+  - POTENTIAL ERROR
+
+    - ```md
+      There was an error while executing `VBoxManage`, a CLI used by Vagrantfor controlling VirtualBox.
+
+      The command and stderr is shown below.Command: ["startvm", "6cf63051-c7c5-41e8-86d2-08d900c27c6e", "--type", "headless"]Stderr: VBoxManage.exe: error: The virtual machine 'centos_default_1741221655223_43917' has terminated unexpectedly during startup with exit code 1 (0x1).
+
+      More details may be available in 'C:\Users\kypec\VirtualBox VMs\centos_default_1741221655223_43917\Logs\VBoxHardening.log'VBoxManage.exe: error: Details: code E_FAIL (0x80004005), component MachineWrap, interface IMachine
+      ```
+
+    - fix upgraded vagrant and virtualbox using choco and the issue was solved
+
 - once you finish vagrant up (this takes a while) you can run
   - vagrant box list - see its installed
   - vagrant status - see its running

@@ -34,3 +34,6 @@
   - shows all previously executed commands
 
 ---
+
+- file {filename}
+  - tells you the type of file
