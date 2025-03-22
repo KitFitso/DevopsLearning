@@ -568,13 +568,13 @@
   - now you should be able to sudo with anyone in the devops group like randy
   - if you need to check who don't forget that you can do cat /etc/group
 
-### package management
+## package management
 
 - centos and ubuntu have different ways to manage their packages
 - centos is apian os
 - ubuntu is debian os
 
-#### centos / manual rpm
+### centos / manual rpm
 
 - sudo -i
 - cat /etc/os-release
@@ -618,3 +618,194 @@
 - rpm -e {telnet package}
 - rpm -qa | grep telnet
   - it should be gone
+
+#### the problem
+
+- lets install httpd
+- search it on rpmfind
+- copy link
+- wget {link}
+  - wget is like curl but only for installing so you don't need the -o and path
+- rpm -ivh httpd---.rpm
+  - it will fail due to missing dependencies
+  - to solve this you would need to install ALL of them manually
+
+### a better way
+
+- yum can do it for us, we did it earlier
+- cd /etc/yum.repos.d
+- cat centos.repo
+  - you will see a bunch of repos in the file
+  - you will also see the links used to download them
+- yum search httpd
+  - it will show you all of the libs with the matching name
+  - check "Name Exactly Matched"
+  - if it is what you were looking for
+- yum install httpd
+  - it will list the package and all dependencies
+  - that would have taken forever to install all 11 deps
+- dnf install httpd
+  - this is an alternative and newer, better option
+- dnf remove httpd
+  - it will remove http and all unused deps
+- dnf upgrade
+  - will update the whole system and all deps
+
+#### practice - install jenkins
+
+- search installing jenkins
+- click linux
+- there are different os's
+  - choose red hat for appian
+- there will be LTS release
+  - you can copy and paste all this
+  - first gets jenkins repo and put in jenkins.repo dir
+  - next imports the key
+  - next it makes sure your OS is upto date
+  - next it installs fontconfig and java-17
+  - next is jenkins
+  - last it restarts your os
+
+## Services
+
+### httpd
+
+- httpd is a service host for linux
+- dnf install httpd
+- systemctl status httpd
+  - you will see that is says inactive
+- systemctl start httpd
+- systemctl status httpd
+  - you should now see it running
+- reboot
+- vagrant ssh
+- sudo -i
+- systemctl status httpd
+  - you can see that it is inactive
+- systemctl enable httpd
+  - this will start httpd at boot
+- reboot
+- vagrant ssh
+- systemctl status httpd
+- systemctl is-active httpd
+- systemctl is-enabled httpd
+- ls /etc/systemd/system/multi-user.target.wants
+  - this is a list of all the services available
+- cat /etc/systemd/system/multi-user.target.wants/httpd.service
+  - this is a description of httpd service
+  - ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND
+    - this is the executed binary to start the service
+
+## processes
+
+- process are things that are constantly running on your os
+- top
+  - this will show you all the dynamic processes that are running on your os
+    _load average is important_
+    - if the load average starts to go up then the cpu is full
+    - the 3 numbers are current, last 5 min, and last 15 min
+- q
+- ps aux
+  - this is like top but is just a snapshot
+- ps -ef
+  - just shows pids and ppid (the parent process)
+- ps -ef | grep httpd
+  - this will show all process with httpd, the last is the grep command we ran to get it
+- ps -ef | grep httpd | grep -v 'grep'
+  - looks at the pid for the httpd
+  - you will see a bunch but all of them point to the same parent execpt 1, kill that one
+- kill {pid}
+- ps -ef | grep httpd | grep -v 'grep'
+- sometimes kill wont work then you need to force kill it
+- kill -9 {pid}
+- ps -ef | grep httpd | grep -v 'grep' | awk '{print $2}
+  - this gives a nice print out of every pid you will need to kill if there is no parent process
+- ps -ef | grep httpd | grep -v 'grep' | awk '{print $2} | xargs kill -9
+  - this will pass all the pids to the force kill command
+
+### zombie processes
+
+- a child process that remains running even after its parent process is reminated or completed without waiting for the child process execution is called an Orphan process
+- Zombie process has completed its task but still, it shows an entry in a process table
+- normally they won't consume resources but they may fill your ram and lead to a crash
+- these can't be killed because there is no pid attached to them.
+- you can find the number of zombies with ps -ef
+- the best way to remove them is to restart the os
+
+## archiving
+
+### tar
+
+- cd /var/log
+- ls jenkins/
+  - you should see jenkins.log
+  - devops will often archive logs for exporting
+- tar -czvf jenkins_03222025.tar.gz jenkin
+  - tar is short for tarball
+  - c is so create
+  - z is to compress
+  - v is for verbose
+  - f is for file
+  - jenkins... is the file name and time stamp
+  - tar is file type for tarball
+  - gz is creating with compression
+  - jenkin - what you are tarballing
+- ls you should see the .tar.gz file
+- mv jenkins_03222025.tar.gz /tmp/
+- cd /tmp/
+- ls
+  - make sure you can see the file
+- tar -xzvf jenkins_03222025.tar.gz -C /opt/
+  - this will extract it to /opt
+    -ls /opt
+
+### zip
+
+- this is simpler but has less options
+- this is not on the base os like tar
+- yum install zip unzip -y
+- zip -r httpd_03222025.zip httpd
+- ls
+  - you should see your .zip file
+- mv httpd_03222025 /opt
+- cd /opt
+- ls
+  - you wont see the httpd dir
+- unzip httpd_03222025/zip
+- ls
+  - you should see the httpd dir
+
+## Ubuntu commands
+
+### useradd
+
+- this work similar but it will not create a root dir for the user
+- instead use adduser
+- this will create all the things and propt for password and more
+
+### visudo
+
+- opens the sudo file in nano, not vim
+- we can change it back to vim with
+- export EDITOR=vim
+- this only works for your current session, if you reboot you will need to run again
+
+### yum
+
+- instead of yum we have apt
+- cd /etc/apt
+- ls
+- cat sources.list
+  - will show you all packages that you install
+- apt update
+  - must be done manually, yum checks and runs every 24 hours
+- ubuntu has SO MANY more packages
+- instead of httpd it has apache2
+- apt install apache2
+- y
+- systemctl status apache2
+  - ubuntu will automatically start and enable any service that you install
+- apt remove apache2
+  - will remove package but not config files
+- apt purge apache2
+  - will remove everything that came from it cleanly

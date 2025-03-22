@@ -134,7 +134,40 @@
   - same as rpm -qa but for debian
 - curl {link} -o {name}
   - text based browser for calls
+- wget {url}
+  - works like curl
 - rpm -ivh {package}
   - install verbose human readable
 - rpm -e {pacakge}
   - erase
+- yum search {lib}
+- yum install {lib}
+- dnf install {lib}
+- dnf update
+- dnf grouplist
+  - lists all available group packages
+- dnf groupinstall {group}
+  - installs all the packes in a group
+  - you can create these for groups like devops
+- dnf repolist
+  - list enabled dnf repos
+- dnf clean all
+  - cleans dnf cache
+- dnf install epel-release
+  - additional package repo that provides easy access to install packages for commonly used software
+- dnf history
+  - shows command history
+- apt update?
+- systemctl status {service}
+- systemctl start {service}
+- systemctl restart {service}
+- systemctl reload {service}
+- systemctl halt {service}
+- systemctl enable {service}
+  - makes the service start at boot
+- systemctl disable {service}
+- top
+- ps aux
+- ps -ef - best one
+  erence between Zombie & Orphan Process
+- adduser - ubuntu useradd
