@@ -33,9 +33,10 @@
 
 ---
 
-- vagrant reload
+- vagrant reload [--provision]
   - reboots the vm. this is the same of halt then up, just faster
   - useful if you made any changes to the vagrant file, it will apply them
+  - you can force the provision by adding --provision at the end
 
 ---
 
