@@ -1,0 +1,36 @@
+Vagrant.configure("2") do |config|
+
+  # Common configuration for all VMs
+  config.vm.box_check_update = false
+
+  # web01 - Ubuntu 20.04
+  config.vm.define "web01" do |web01|
+    web01.vm.box = "ubuntu/focal64"
+    web01.vm.hostname = "web01"
+    web01.vm.network "private_network", ip: "192.168.56.101"
+  end
+
+  # web02 - Ubuntu 20.04
+  config.vm.define "web02" do |web02|
+    web02.vm.box = "ubuntu/focal64"
+    web02.vm.hostname = "web02"
+    web02.vm.network "private_network", ip: "192.168.56.102"
+  end
+
+  # db01 - CentOS 7 with provisioning and hostname
+  config.vm.define "db01" do |db01|
+    db01.vm.box = "centos/7"
+    db01.vm.hostname = "db01"
+    db01.vm.network "private_network", ip: "192.168.56.103"
+    db01.vm.network "public_network", 
+
+    # Simple shell provisioning example
+    db01.vm.provision "shell", inline: <<-SHELL
+      yum update -y
+      yum install -y zip unzip wget mariadb-server
+      systemctl enable mariadb
+      systemctl start mariadb
+      echo "Provisioning complete on db01"
+    SHELL
+  end
+end

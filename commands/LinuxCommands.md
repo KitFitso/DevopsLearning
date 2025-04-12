@@ -171,3 +171,5 @@
 - ps -ef - best one
   erence between Zombie & Orphan Process
 - adduser - ubuntu useradd
+- sytemctl daemon-reload
+  - updates the service files

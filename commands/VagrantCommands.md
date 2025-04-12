@@ -49,3 +49,6 @@
   - removes any boxes from the list that are not installed or running
 
 ---
+
+- vagrant box list
+  - lists every virtual box that you have installed on your machine
