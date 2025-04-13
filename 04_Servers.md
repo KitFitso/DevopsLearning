@@ -329,7 +329,7 @@
 - you can use chatgpt for this work too but make sure you aren't relying on it too much
 - chatgpt
   - Multivm Vagrantfile with web01 ubuntu20, web02 with ubuntu20, and db01 with centos7. Private IP for all the VMs. Provisioning for db01. set hostname also.
-- my sample is in the sample/multiVM
+- my sample is in the [samples/04/multiVM](samples/04/multiVM)
   - I did need to update the yum install line to incluide zip, unzip and wget
   - There was an error on the install, something went wrong with internet access, all I did was vagrant reload and it worked to problem
 
@@ -436,7 +436,7 @@
 
 #### tomcat.service notes
 
-- the rest of this will be notes and the finished file will be in samples/tomcatservice
+- the rest of this will be notes and the finished file will be in [samples/04/tomcat.service](samples/04/tomcat.service)
   - we need to write this like the others and remember there are 3 directives
   - also make sure to capitalize all the things
   - These are rarely written from scratch like this but its good to practice
