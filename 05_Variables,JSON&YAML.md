@@ -27,3 +27,8 @@
 - I just did this as a python file in [samples/05/variables.py](samples/05/variables.py)
 
 # JSON & YAML (yet another markup language)
+
+- These are how you save large data.
+- JSON is used for data storage
+- YAML is mostly used for configs in devops because its a little nicer to read
+- I made the examples in the [samples/05/json.json](samples/05/json.json) and [samples/05/yaml.yaml](samples/05/yaml.yaml)

@@ -1,0 +1,12 @@
+devops:
+  skill: json
+  year: 2025
+  tech:
+    cloud: aws
+    language: python
+    container: docker
+    CICO: github actions
+    gitops:
+      - argocd
+      - flux
+      - tekton
