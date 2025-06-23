@@ -1,3 +1,7 @@
+## [To the notes page](../03_Linux.md)
+
+### it has better notes and some examples
+
 - ip addr show
   - basically ipconfig
 - whoami

@@ -443,5 +443,6 @@ server {
 - now you can watch the magic on virtual box if you want or just watch in bash but either way nothing to do but wait.
 - when its up you can check the vagrant file for the correct ip
   - should be 192.168.33.11
+  - you can also log into the hostname http://web01
 - log in and test just like last time
 - done!
